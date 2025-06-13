@@ -1,16 +1,9 @@
-import { useCharStore } from "../useCharStore";
+import Hero from "./ui/Hero";
 
 function App() {
-
-  const {
-    bears
-  } = useCharStore();
-
   return (
-    <div className="w-full h-dvh bg-black">
-      <div className="font-bold text-3xl text-white">
-        {bears}
-      </div>
+    <div className="w-full h-dvh bg-background text-text">
+      <Hero />
     </div>
   )
 }
