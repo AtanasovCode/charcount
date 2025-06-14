@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { 
         BarChart, 
-        Bar, 
+        Bar,
+        YAxis,
+        XAxis,
         ResponsiveContainer,
         Tooltip,
     } from "recharts";
@@ -16,7 +18,7 @@ const Chart = () => {
     } = useCharStore();
 
     const countChars = () => {
-        const text = userText.split('');
+        const text = userText.replace(/\s/g, "");
         const obj: Record<string, number> = {};
 
         for(const char of text) {
@@ -37,8 +39,17 @@ const Chart = () => {
     }, [userText])
 
     return (
-        <ResponsiveContainer  width="40%" height={200}>
-            <BarChart data={charAnalysis ? charAnalysis : []} >
+        <ResponsiveContainer  width="100%" height={400}>
+            <BarChart 
+                data={charAnalysis ? charAnalysis : []} 
+                layout="vertical"
+            >
+                <YAxis 
+                    type="category" 
+                    dataKey="char"
+                    tick={{ fill: "#FFFFFF" }}
+                />
+                <XAxis type="number" dataKey="count" />
                 <Bar dataKey={"count"} fill="#a9d1c3" />
                 <Tooltip />
             </BarChart>
