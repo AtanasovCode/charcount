@@ -3,6 +3,7 @@ import { useCharStore } from "../useCharStore";
 import Hero from "./ui/Hero";
 import Header from "./ui/Header";
 import TextInput from "./ui/TextInput";
+import Chart from "./ui/Chart";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Chart />
     </div>
   )
 }
