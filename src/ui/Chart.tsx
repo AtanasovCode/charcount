@@ -60,14 +60,14 @@ const Chart = () => {
     }, [userText])
 
     return (
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={600}>
             <BarChart
-                data={charAnalysis ? charAnalysis : []}
+                data={wordAnalysis ? wordAnalysis : []}
                 layout="vertical"
             >
                 <YAxis
                     type="category"
-                    dataKey="char"
+                    dataKey="word"
                     tick={{ fill: "#FFFFFF" }}
                 />
                 <XAxis
