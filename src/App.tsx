@@ -17,9 +17,8 @@ function App() {
         <Hero />
         <TextInput />
       </div>
-      <div className="w-full xl:max-w-[45%]">
+      <div className="w-full xl:max-w-[45%] bg-slate-700">
         <Chart />
-
       </div>
     </div>
   )

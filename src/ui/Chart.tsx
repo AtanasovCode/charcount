@@ -13,11 +13,33 @@ const Chart = () => {
 
     const {
         userText,
+        wordCount,
         charAnalysis,
         setCharAnalysis,
         wordAnalysis,
         setWordAnalysis,
     } = useCharStore();
+
+    const getBarHeight = () => {
+
+        const count = wordAnalysis?.length || 0; // number of unique words
+        if (count === 0) return 0; // return if there are no words
+
+        if (count <= 3) return 60;
+        if (count <= 20) return 40;
+        if (count <= 60) return 30;
+        return 20;
+    }
+
+    const getChartHeightBasedOnWordCount = () => {
+        const count = wordAnalysis?.length || 0; // number of unique words
+        if (count === 0) return 0; // return if there are no words
+
+        const barHeight: number = getBarHeight();
+        const idealHeightMultiplier = barHeight ? barHeight * 1.2 : 0;
+
+        return count * idealHeightMultiplier;
+    }
 
     const countChars = () => {
         const text = userText.replace(/\s/g, "").toLowerCase();
@@ -60,7 +82,10 @@ const Chart = () => {
     }, [userText])
 
     return (
-        <ResponsiveContainer width="100%" height={600}>
+        <ResponsiveContainer
+            width="100%"
+            height={getChartHeightBasedOnWordCount()}
+        >
             <BarChart
                 data={wordAnalysis ? wordAnalysis : []}
                 layout="vertical"
@@ -74,8 +99,13 @@ const Chart = () => {
                     type="number"
                     dataKey="count"
                     tick={{ fill: "#FFFFFF" }}
+                    domain={[0, 'dataMax']}
                 />
-                <Bar dataKey={"count"} fill="#a9d1c3" />
+                <Bar
+                    dataKey={"count"}
+                    fill="#a9d1c3"
+                    maxBarSize={getBarHeight()}
+                />
                 <Tooltip />
             </BarChart>
         </ResponsiveContainer>
