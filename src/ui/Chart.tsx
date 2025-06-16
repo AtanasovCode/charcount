@@ -28,7 +28,7 @@ const Chart = () => {
         if (count <= 3) return 60;
         if (count <= 20) return 40;
         if (count <= 60) return 30;
-        return 20;
+        return 30;
     }
 
     const getChartHeightBasedOnWordCount = () => {
@@ -103,7 +103,7 @@ const Chart = () => {
                 />
                 <Bar
                     dataKey={"count"}
-                    fill="#a9d1c3"
+                    fill="hsl(242, 100%, 38%)"
                     maxBarSize={getBarHeight()}
                 />
                 <Tooltip />

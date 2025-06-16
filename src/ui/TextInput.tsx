@@ -34,7 +34,7 @@ const TextInput = () => {
                 value={userText}
                 onChange={(e) => handleUserInput(e)}
                 placeholder="Start typing or paste your text here"
-                className="w-full bg-slate-700 min-h-48 p-4 rounded-md outline-0"
+                className="w-full bg-secondary min-h-48 p-4 rounded-md outline-0"
             >
 
             </textarea>

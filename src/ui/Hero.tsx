@@ -2,7 +2,7 @@ import Swiggle from "../assets/swiggly-line.svg";
 
 const Hero = () => {
     return (
-        <div className="flex items-center justify-center min-h-1/3 w-full">
+        <div className="flex items-center justify-center w-full">
             <div className="text-text font-bold text-4xl xl:text-7xl flex flex-col items-center justify-center">
                 <div>
                     Analyze your text
