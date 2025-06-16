@@ -106,7 +106,7 @@ const Chart = () => {
                     type="number"
                     dataKey="count"
                     tick={{ fill: "#FFFFFF" }}
-                    domain={[0, (dataMax: any) => dataMax + 20]}
+                    domain={[0, (dataMax: any) => dataMax * 1.05]}
                 />
                 <Bar
                     dataKey={"count"}

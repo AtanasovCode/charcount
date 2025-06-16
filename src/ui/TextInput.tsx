@@ -6,9 +6,9 @@ const TextInput = () => {
     const {
         userText,
         setUserText,
-        charCount,
         setCharCount,
         setWordCount,
+        setSentenceCount,
     } = useCharStore();
 
     const handleUserInput = (e: any) => {
@@ -16,14 +16,7 @@ const TextInput = () => {
         setUserText(value);
         setCharCount(value.trim().length);
         setWordCount(value.trim().split(/\s+/).filter(Boolean).length);
-    };
-
-    const countString = (string: string) => {
-        const obj: any = {};
-        for (const char of string) {
-            obj[char] = (obj[char] || 0) + 1;
-        }
-        return obj;
+        setSentenceCount(value.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|!|\?)\s/g).length)
     };
 
 

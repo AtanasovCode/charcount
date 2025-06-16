@@ -4,6 +4,7 @@ import StatContainer from "./StatContainer";
 const Stats = () => {
 
     const {
+        sentenceCount,
         wordCount,
         charCount,
     } = useCharStore();
@@ -16,7 +17,7 @@ const Stats = () => {
             <div className="w-full flex items-center justify-center gap-4">
                 <StatContainer
                     title="Sentence Count"
-                    value={wordCount}
+                    value={sentenceCount}
                     color="accent"
                 />
                 <StatContainer

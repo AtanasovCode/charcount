@@ -12,6 +12,8 @@ interface charStore {
     setCharCount: (value: number) => void;
     wordCount: number | null;
     setWordCount: (value: number) => void;
+    sentenceCount: number | null;
+    setSentenceCount: (count: number | null) => void;
 
     wordAnalysis: charType[] | null;
     setWordAnalysis: (value: charType[]) => void;
@@ -27,6 +29,8 @@ export const useCharStore = create<charStore>()((set) => ({
     setCharCount: (value: number) => set({ charCount: value }),
     wordCount: null,
     setWordCount: (value: number) => set({ wordCount: value }),
+    sentenceCount: null,
+    setSentenceCount: (count: number | null) => set({ sentenceCount: count }),
 
     wordAnalysis: null,
     setWordAnalysis: (analysis: charType[]) => set({ wordAnalysis: analysis }),
