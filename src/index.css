@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-   --color-text: hsl(246, 76%, 95%);
+   --color-color-text: hsl(246, 76%, 95%);
    --color-background: hsl(240, 60%, 1%);
    --color-primary: hsl(243, 68%, 52%);
-   --color-secondary: hsl(243, 100%, 7%);
-   --color-accent: hsl(242, 100%, 38%);
+   --color-secondary: hsl(243, 100%, 22%);
+   --color-accent: hsl(242, 100%, 48%);
 
 
    -font-display: "Roboto", sans-serif;

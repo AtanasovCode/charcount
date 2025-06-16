@@ -103,7 +103,7 @@ const Chart = () => {
                 />
                 <Bar
                     dataKey={"count"}
-                    fill="hsl(242, 100%, 38%)"
+                    fill="hsl(242, 100%, 45%)"
                     maxBarSize={getBarHeight()}
                 />
                 <Tooltip />
