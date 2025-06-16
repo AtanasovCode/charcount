@@ -11,10 +11,10 @@ const Stats = () => {
 
     return (
         <div className="w-full flex flex-col items-start justify-center gap-2">
-            <div className="font-bold text-xl">
+            <div className="font-bold text-2xl">
                 Stats
             </div>
-            <div className="w-full flex items-center justify-center gap-4">
+            <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4">
                 <StatContainer
                     title="Sentence Count"
                     value={sentenceCount}

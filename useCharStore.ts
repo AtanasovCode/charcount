@@ -20,6 +20,9 @@ interface charStore {
 
     charAnalysis: charType[] | null;
     setCharAnalysis: (value: charType[]) => void;
+
+    showFullAnalysis: boolean;
+    setShowFullAnalysis: (value: boolean) => void;
 }
 
 export const useCharStore = create<charStore>()((set) => ({
@@ -36,4 +39,7 @@ export const useCharStore = create<charStore>()((set) => ({
     setWordAnalysis: (analysis: charType[]) => set({ wordAnalysis: analysis }),
     charAnalysis: null,
     setCharAnalysis: (analysis: charType[]) => set({ charAnalysis: analysis }),
+
+    showFullAnalysis: false,
+    setShowFullAnalysis: (value: boolean) => set({showFullAnalysis: value }),
 }))
