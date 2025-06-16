@@ -12,17 +12,18 @@ const StatContainer = ({
 }: StatTypes) => {
     return (
         <div className={clsx(
-            "w-full p-6 flex flex-col items-center justify-start gap-6",
+            "w-full p-6 flex flex-col items-center justify-start gap-6 rounded-xl",
             {
-                "bg-primary": color === "primary",
-                "bg-secondary": color === "secondary"
+                "bg-accent text-background": color === "accent",
+                "bg-secondary": color === "secondary",
+                "bg-orange text-background": color === "orange"
             }
         )}>
+            <div className="text-5xl font-black">
+                {value ? value : "00"}
+            </div>
             <div className="font-semibold text-xl">
                 {title}
-            </div>
-            <div className="text-lg font-bold">
-                {value ? value : 0}
             </div>
         </div>
     );

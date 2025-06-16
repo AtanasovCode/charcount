@@ -9,15 +9,20 @@ const Stats = () => {
     } = useCharStore();
 
     return (
-        <div className="w-full flex flex-col items-start justify-center gap-6">
+        <div className="w-full flex flex-col items-start justify-center gap-2">
             <div className="font-bold text-xl">
                 Stats
             </div>
             <div className="w-full flex items-center justify-center gap-4">
                 <StatContainer
+                    title="Sentence Count"
+                    value={wordCount}
+                    color="accent"
+                />
+                <StatContainer
                     title="Word Count"
                     value={wordCount}
-                    color="primary"
+                    color="orange"
                 />
                 <StatContainer
                     title="Character Count"
