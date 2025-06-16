@@ -24,9 +24,9 @@ const Chart = () => {
 
         const count = wordAnalysis?.length || 0; // number of unique words
         if (count === 0) return 0; // return if there are no words
-        if(!showFullAnalysis) return 30;
+        if (!showFullAnalysis) return 30;
 
-        if (count <= 3) return 60;  
+        if (count <= 3) return 60;
         if (count <= 20) return 35;
         if (count <= 60) return 30;
         return 30;
@@ -40,7 +40,7 @@ const Chart = () => {
         const idealHeightMultiplier = barHeight ? barHeight * 1.2 : 0;
 
         // if only 10 bars are visible, multiple the bar height by 10
-        if(!showFullAnalysis) return 15 * idealHeightMultiplier;
+        if (!showFullAnalysis) return 15 * idealHeightMultiplier;
         return count * idealHeightMultiplier;
     }
 
@@ -108,6 +108,7 @@ const Chart = () => {
                     type="number"
                     dataKey="count"
                     tick={{ fill: "#FFFFFF" }}
+                    tickFormatter={(value) => Math.floor(value).toString()}
                     domain={[0, (dataMax: any) => dataMax * 1.05]}
                 />
                 <Bar
