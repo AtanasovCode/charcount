@@ -8,7 +8,7 @@ const Hero = () => {
                     Analyze your text
                 </div>
                 <div>
-                    in <span className="font-fancy relative text-fancy">
+                    in <span className="font-fancy relative text-accent">
                         real-time
                         <img src={Swiggle} className="absolute w-full max-h-16 -bottom-10 -right-[45%]" />
                     </span>

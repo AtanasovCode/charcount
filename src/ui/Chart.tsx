@@ -106,15 +106,16 @@ const Chart = () => {
                     type="number"
                     dataKey="count"
                     tick={{ fill: "#FFFFFF" }}
-                    domain={[0, 'dataMax']}
+                    domain={[0, (dataMax: any) => dataMax + 20]}
                 />
                 <Bar
                     dataKey={"count"}
-                    fill="hsl(242, 100%, 65%)"
+                    fill="hsl(242, 100%, 83%)"
                     maxBarSize={getBarHeight()}
+                    radius={32}
                     label={({ x, y, width, height, value }) => (
                         <text
-                            x={x + width - 32}
+                            x={x + width + 24}
                             y={y + height / 2}
                             fill="#fff"
                             fontSize={13}
