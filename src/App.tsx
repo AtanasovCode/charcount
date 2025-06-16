@@ -20,7 +20,7 @@ function App() {
           <InfoBox />
         </div>
         <div className="w-full xl:flex-3/4 flex items-center justify-center">
-          <div className="flex flex-col items-center justify-center gap-16 xl:gap-24 w-full xl:w-5/6">
+          <div className="flex flex-col items-center justify-center gap-16 w-full xl:w-5/6">
             <Hero />
             <TextInput />
             <Stats />

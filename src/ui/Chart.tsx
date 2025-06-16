@@ -81,6 +81,13 @@ const Chart = () => {
         countWords();
     }, [userText])
 
+    const calculateWordPercentage = (value: number) => {
+        if(!wordCount) return;
+        const percent = (value * 100) / wordCount;
+
+        return percent.toFixed(2);
+    }
+
     return (
         <ResponsiveContainer
             width="100%"
@@ -103,8 +110,20 @@ const Chart = () => {
                 />
                 <Bar
                     dataKey={"count"}
-                    fill="hsl(242, 100%, 45%)"
+                    fill="hsl(242, 100%, 65%)"
                     maxBarSize={getBarHeight()}
+                    label={({ x, y, width, height, value }) => (
+                        <text
+                            x={x + width - 32}
+                            y={y + height / 2}
+                            fill="#fff"
+                            fontSize={13}
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                        >
+                            {calculateWordPercentage(value)}%
+                        </text>
+                    )}
                 />
                 <Tooltip />
             </BarChart>
