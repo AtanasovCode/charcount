@@ -5,6 +5,7 @@ import {
     YAxis,
     XAxis,
     ResponsiveContainer,
+    CartesianGrid,
     Tooltip,
 } from "recharts";
 import { useCharStore } from "../../useCharStore";
@@ -77,6 +78,12 @@ const Chart = () => {
                 data={wordAnalysis ? (showFullAnalysis ? wordAnalysis : wordAnalysis.slice(0, 15)) : []}
                 layout="vertical"
             >
+                <CartesianGrid
+                    strokeDasharray="3"
+                    fill="blue"
+                    fillOpacity={0.1}
+                />
+
                 <YAxis
                     type="category"
                     dataKey="word"
