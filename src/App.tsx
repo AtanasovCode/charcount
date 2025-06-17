@@ -4,7 +4,6 @@ import Hero from "./ui/Hero";
 import Header from "./ui/Header";
 import TextInput from "./ui/TextInput";
 import ChartContainer from "./ui/ChartContainer";
-import InfoBox from "./ui/InfoBox";
 import Stats from "./ui/Stats";
 
 

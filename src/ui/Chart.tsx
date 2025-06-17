@@ -33,7 +33,7 @@ const Chart = () => {
 
     const getChartHeightBasedOnWordCount = () => {
         const uniqueWordsCount = getUniqueWordsCount();
-        const count = showFullAnalysis ? uniqueWordsCount : Math.min(uniqueWordsCount, 15);
+        const count = showFullAnalysis ? uniqueWordsCount : Math.min(uniqueWordsCount, 20);
         if (count === 0) return 0; // return if there are no words
 
         const barHeight: number = getBarHeight(); // individual bar height
@@ -75,8 +75,9 @@ const Chart = () => {
             height={getChartHeightBasedOnWordCount()}
         >
             <BarChart
-                data={wordAnalysis ? (showFullAnalysis ? wordAnalysis : wordAnalysis.slice(0, 15)) : []}
+                data={wordAnalysis ? (showFullAnalysis ? wordAnalysis : wordAnalysis.slice(0, 20)) : []}
                 layout="vertical"
+                margin={{ top: 10, right: 20, bottom: 10, left: 10 }} 
             >
                 <CartesianGrid
                     strokeDasharray="3"
