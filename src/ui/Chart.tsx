@@ -18,79 +18,46 @@ const Chart = () => {
         wordAnalysis,
         setWordAnalysis,
         showFullAnalysis,
-        visibleBars,
-        setVisibleBars,
     } = useCharStore();
 
+    // 
+    const getUniqueWordsCount = () => {
+        return wordAnalysis?.length || 0;
+    }
+
     const getBarHeight = () => {
-
-        const count = wordAnalysis?.length || 0; // number of unique words
-        if (count === 0) return 0; // return if there are no words
-        if (!showFullAnalysis) {
-            if (count <= 3) return 60;
-            if (count <= 6) return 50;
-            if (count <= 10) return 40;
-            return 30;
-        }
-
-        return 30;
+        const barHeight: number = 30;
+        return wordAnalysis ? barHeight : 0;
     }
 
     const getChartHeightBasedOnWordCount = () => {
-
-        if (!wordAnalysis) return 0;
-
-        const count = showFullAnalysis ? wordAnalysis.length : Math.min(wordAnalysis.length, 15);
+        const uniqueWordsCount = getUniqueWordsCount();
+        const count = showFullAnalysis ? uniqueWordsCount : Math.min(uniqueWordsCount, 15);
         if (count === 0) return 0; // return if there are no words
 
-        const barHeight: number = getBarHeight();
-        const idealHeightMultiplier = barHeight ? barHeight * 1.2 : 0;
-
-        // if only 15 bars are visible, multiple the bar height by 10
-        if (!showFullAnalysis) {
-            if (wordAnalysis.length <= 15) return wordAnalysis.length * idealHeightMultiplier;
-            return 15 * idealHeightMultiplier;
-        }
+        const barHeight: number = getBarHeight(); // individual bar height
+        const idealHeightMultiplier = barHeight * 1.1; // give 110% space for each bar
 
         return count * idealHeightMultiplier;
-    }
-
-    const countChars = () => {
-        const text = userText.replace(/\s/g, "").toLowerCase();
-        const obj: Record<string, number> = {};
-
-        for (const char of text) {
-            obj[char] = (obj[char] || 0) + 1;
-        }
-
-        const temp = Object.entries(obj).map(([char, count]) => ({
-            char,
-            count
-        }))
-
-        temp.sort((a, b) => b.count - a.count);
-        setCharAnalysis(temp);
     }
 
     const countWords = () => {
         const text = userText.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
         const obj: Record<string, number> = {};
 
-        text.map((word) => {
+        text.forEach((word) => {
             obj[word] = (obj[word] || 0) + 1;
         })
 
-        const temp: any = Object.entries(obj).map(([word, count]) => ({
+        const sortedWords: any = Object.entries(obj).map(([word, count]) => ({
             word,
             count
-        }))
+        })).sort((a: any, b: any) => b.count - a.count);
 
-        temp.sort((a: any, b: any) => b.count - a.count);
-        setWordAnalysis(temp);
+        setWordAnalysis(sortedWords);
     }
 
     useEffect(() => {
-        countChars();
         countWords();
     }, [userText])
 
@@ -113,7 +80,7 @@ const Chart = () => {
                 <YAxis
                     type="category"
                     dataKey="word"
-                    tick={{ fill: "#FFFFFF" }}
+                    tick={{ fill: "#FFFFFF", fontSize: "13px" }}
                 />
                 <XAxis
                     type="number"
@@ -126,7 +93,7 @@ const Chart = () => {
                     dataKey={"count"}
                     fill="hsl(242, 100%, 83%)"
                     maxBarSize={getBarHeight()}
-                    radius={32}
+                    radius={6}
                     label={({ x, y, width, height, value }) => (
                         <text
                             x={x + width + 24}
