@@ -23,6 +23,8 @@ interface charStore {
 
     showFullAnalysis: boolean;
     setShowFullAnalysis: (value: boolean) => void;
+    visibleBars: number;
+    setVisibleBars: (bars: number) => void;
 }
 
 export const useCharStore = create<charStore>()((set) => ({
@@ -42,4 +44,6 @@ export const useCharStore = create<charStore>()((set) => ({
 
     showFullAnalysis: false,
     setShowFullAnalysis: (value: boolean) => set({showFullAnalysis: value }),
+    visibleBars: 0,
+    setVisibleBars: (bars: number) => set({ visibleBars: bars }),
 }))

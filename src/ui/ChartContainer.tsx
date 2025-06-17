@@ -30,7 +30,7 @@ const ChartContainer = () => {
                         "hidden": userText !== ""
                     }
                 )}>
-                    Start typing or input text to see text analysis
+                    Start typing or input text to see word analysis
                 </div>
             </div>
             <Chart />

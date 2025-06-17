@@ -18,29 +18,40 @@ const Chart = () => {
         wordAnalysis,
         setWordAnalysis,
         showFullAnalysis,
+        visibleBars,
+        setVisibleBars,
     } = useCharStore();
 
     const getBarHeight = () => {
 
         const count = wordAnalysis?.length || 0; // number of unique words
         if (count === 0) return 0; // return if there are no words
-        if (!showFullAnalysis) return 30;
+        if (!showFullAnalysis) {
+            if (count <= 3) return 60;
+            if (count <= 6) return 50;
+            if (count <= 10) return 40;
+            return 30;
+        }
 
-        if (count <= 3) return 60;
-        if (count <= 20) return 35;
-        if (count <= 60) return 30;
         return 30;
     }
 
     const getChartHeightBasedOnWordCount = () => {
-        const count = wordAnalysis?.length || 0; // number of unique words
+
+        if (!wordAnalysis) return 0;
+
+        const count = showFullAnalysis ? wordAnalysis.length : Math.min(wordAnalysis.length, 15);
         if (count === 0) return 0; // return if there are no words
 
         const barHeight: number = getBarHeight();
         const idealHeightMultiplier = barHeight ? barHeight * 1.2 : 0;
 
-        // if only 10 bars are visible, multiple the bar height by 10
-        if (!showFullAnalysis) return 15 * idealHeightMultiplier;
+        // if only 15 bars are visible, multiple the bar height by 10
+        if (!showFullAnalysis) {
+            if (wordAnalysis.length <= 15) return wordAnalysis.length * idealHeightMultiplier;
+            return 15 * idealHeightMultiplier;
+        }
+
         return count * idealHeightMultiplier;
     }
 
