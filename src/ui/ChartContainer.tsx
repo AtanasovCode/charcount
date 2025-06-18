@@ -12,7 +12,7 @@ const ChartContainer = () => {
 
     const checkAnalysisLength = () => {
         if (!wordAnalysis) return false;
-        return wordAnalysis.length > 10;
+        return wordAnalysis.length > 20;
     };
 
     const shouldShowToggle = userText !== "" && checkAnalysisLength();

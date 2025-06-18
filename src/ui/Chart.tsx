@@ -77,7 +77,7 @@ const Chart = () => {
             <BarChart
                 data={wordAnalysis ? (showFullAnalysis ? wordAnalysis : wordAnalysis.slice(0, 20)) : []}
                 layout="vertical"
-                margin={{ top: 10, right: 20, bottom: 10, left: 10 }} 
+                margin={{ top: 1, right: 25, bottom: 1, left: 1 }} 
             >
                 <CartesianGrid
                     strokeDasharray="3"
