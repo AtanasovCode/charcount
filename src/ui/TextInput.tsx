@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useCharStore } from "../../useCharStore";
 import clearText from "../assets/delete.svg";
 
+
 const TextInput = () => {
 
     const {
@@ -20,6 +21,13 @@ const TextInput = () => {
         setSentenceCount(value.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|!|\?)\s/g).length)
     };
 
+    const handleClearText = () => {
+        setUserText("");
+        setSentenceCount(0);
+        setWordCount(0);
+        setCharCount(0);
+    }
+
 
     return (
         <div className="w-full flex flex-col items-start justify-center text-text gap-2">
@@ -37,14 +45,14 @@ const TextInput = () => {
                         className="p-2 text-xs rounded-md flex items-center justify-center 
                                     gap-2 bg-secondary border-0 cursor-pointer
                                     transition-all duration-200
-                                    hover:bg-orange hover:text-background"
-                        onClick={() => setUserText("")}
+                                    hover:bg-slate-500"
+                        onClick={() => handleClearText()}
                     >
                         <p>Clear text</p>
                         <img
                             src={clearText}
                             alt="clear text icon"
-                            className="w-4"
+                            className="w-3"
                         />
                     </button>
                 )
