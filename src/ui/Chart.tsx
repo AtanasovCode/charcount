@@ -15,7 +15,6 @@ const Chart = () => {
     const {
         userText,
         wordCount,
-        setCharAnalysis,
         wordAnalysis,
         setWordAnalysis,
         showFullAnalysis,
@@ -26,8 +25,13 @@ const Chart = () => {
     }
 
     const getBarHeight = () => {
-        const barHeight: number = 30;
-        return wordAnalysis ? barHeight : 0;
+        const wordCount = getUniqueWordsCount();
+
+        if (wordCount === 0) return 0;
+        if (wordCount <= 3) return 60;
+        if (wordCount <= 6) return 50;
+        if (wordCount <= 10) return 40;
+        return 30;
     }
 
     const getChartHeightBasedOnWordCount = () => {
