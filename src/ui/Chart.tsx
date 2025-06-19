@@ -21,7 +21,6 @@ const Chart = () => {
         showFullAnalysis,
     } = useCharStore();
 
-    // 
     const getUniqueWordsCount = () => {
         return wordAnalysis?.length || 0;
     }
@@ -34,10 +33,10 @@ const Chart = () => {
     const getChartHeightBasedOnWordCount = () => {
         const uniqueWordsCount = getUniqueWordsCount();
         const count = showFullAnalysis ? uniqueWordsCount : Math.min(uniqueWordsCount, 20);
-        if (count === 0) return 0; // return if there are no words
+        if (count === 0) return 0;
 
-        const barHeight: number = getBarHeight(); // individual bar height
-        const idealHeightMultiplier = barHeight * 1.1; // give 110% space for each bar
+        const barHeight: number = getBarHeight();
+        const idealHeightMultiplier = barHeight * 1.1;
 
         return count * idealHeightMultiplier;
     }
@@ -69,6 +68,33 @@ const Chart = () => {
         return percent.toFixed(2);
     }
 
+    function CustomTooltip({ payload, label, active }: any) {
+        if (active && payload && payload.length) {
+            return (
+                <div className="bg-secondary rounded-md p-4 flex flex-col items-start justify-center text-text">
+                    <div className="flex items-center justify-center gap-1">
+                        <div>
+                            Word:
+                        </div>
+                        <div>
+                            {label}
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center gap-1">
+                        <div>
+                            Count:
+                        </div>
+                        <div>
+                            {payload[0].value}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        return null;
+    }
+
     return (
         <ResponsiveContainer
             width="100%"
@@ -77,7 +103,7 @@ const Chart = () => {
             <BarChart
                 data={wordAnalysis ? (showFullAnalysis ? wordAnalysis : wordAnalysis.slice(0, 20)) : []}
                 layout="vertical"
-                margin={{ top: 1, right: 25, bottom: 1, left: 1 }} 
+                margin={{ top: 0, right: 26, bottom: 0, left: 0 }}
             >
                 <CartesianGrid
                     strokeDasharray="3"
@@ -95,11 +121,11 @@ const Chart = () => {
                     dataKey="count"
                     tick={{ fill: "#FFFFFF" }}
                     tickFormatter={(value) => Math.floor(value).toString()}
-                    domain={[0, (dataMax: any) => dataMax * 1.05]}
+                    domain={[0, (dataMax: any) => dataMax * 1]}
                 />
                 <Bar
                     dataKey={"count"}
-                    fill="hsl(242, 100%, 83%)"
+                    fill="hsl(242, 100%, 93%)"
                     maxBarSize={getBarHeight()}
                     radius={6}
                     label={({ x, y, width, height, value }) => (
@@ -107,7 +133,7 @@ const Chart = () => {
                             x={x + width + 24}
                             y={y + height / 2}
                             fill="#fff"
-                            fontSize={13}
+                            fontSize={12}
                             textAnchor="middle"
                             dominantBaseline="middle"
                         >
@@ -115,7 +141,7 @@ const Chart = () => {
                         </text>
                     )}
                 />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip />} />
             </BarChart>
         </ResponsiveContainer>
     );

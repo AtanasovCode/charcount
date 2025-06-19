@@ -12,11 +12,11 @@ const StatContainer = ({
 }: StatTypes) => {
     return (
         <div className={clsx(
-            "w-full p-6 flex flex-col items-center justify-start gap-6 rounded-xl",
+            "w-full p-4 flex flex-col items-center justify-start gap-4 rounded-md text-background",
             {
-                "bg-accent text-background": color === "accent",
-                "bg-secondary": color === "secondary",
-                "bg-orange text-background": color === "orange"
+                "bg-accent": color === "accent",
+                "bg-green": color === "green",
+                "bg-orange": color === "orange"
             }
         )}>
             <div className="text-5xl font-black">

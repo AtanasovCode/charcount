@@ -15,7 +15,7 @@ function App() {
     <div className="w-full min-h-dvh bg-background px-2 md:px-6 pb-12 text-text font-display flex flex-col items-center justify-start gap-8">
       <Header />
       <div className="w-full flex items-center justify-center">
-        <div className="flex flex-col items-center justify-center gap-12 w-full xl:w-4/6">
+        <div className="flex flex-col items-center justify-center gap-14 w-full xl:w-4/6">
           <Hero />
           <TextInput />
           <Stats />
