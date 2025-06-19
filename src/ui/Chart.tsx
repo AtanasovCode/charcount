@@ -103,7 +103,7 @@ const Chart = () => {
             <BarChart
                 data={wordAnalysis ? (showFullAnalysis ? wordAnalysis : wordAnalysis.slice(0, 20)) : []}
                 layout="vertical"
-                margin={{ top: 0, right: 26, bottom: 0, left: 0 }}
+                margin={{ top: 0, right: 40, bottom: 0, left: 0 }}
             >
                 <CartesianGrid
                     strokeDasharray="3"
@@ -121,7 +121,7 @@ const Chart = () => {
                     dataKey="count"
                     tick={{ fill: "#FFFFFF" }}
                     tickFormatter={(value) => Math.floor(value).toString()}
-                    domain={[0, (dataMax: any) => dataMax * 1]}
+                    domain={[0, (dataMax: any) => dataMax]}
                 />
                 <Bar
                     dataKey={"count"}
@@ -130,7 +130,7 @@ const Chart = () => {
                     radius={6}
                     label={({ x, y, width, height, value }) => (
                         <text
-                            x={x + width + 24}
+                            x={x + width + 22}
                             y={y + height / 2}
                             fill="#fff"
                             fontSize={12}

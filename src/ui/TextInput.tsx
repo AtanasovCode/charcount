@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useCharStore } from "../../useCharStore";
+import clearText from "../assets/delete.svg";
 
 const TextInput = () => {
 
@@ -21,7 +22,7 @@ const TextInput = () => {
 
 
     return (
-        <div className="w-full flex items-center justify-center text-text">
+        <div className="w-full flex flex-col items-start justify-center text-text gap-2">
             <textarea
                 name="text"
                 value={userText}
@@ -29,8 +30,25 @@ const TextInput = () => {
                 placeholder="Start typing or paste your text here"
                 className="w-full bg-secondary min-h-42 p-2 rounded-md outline-0"
             >
-
             </textarea>
+            {
+                userText !== "" && (
+                    <button
+                        className="p-2 text-xs rounded-md flex items-center justify-center 
+                                    gap-2 bg-secondary border-0 cursor-pointer
+                                    transition-all duration-200
+                                    hover:bg-orange hover:text-background"
+                        onClick={() => setUserText("")}
+                    >
+                        <p>Clear text</p>
+                        <img
+                            src={clearText}
+                            alt="clear text icon"
+                            className="w-4"
+                        />
+                    </button>
+                )
+            }
         </div>
     );
 }
