@@ -36,7 +36,7 @@ const TextInput = () => {
                 value={userText}
                 onChange={(e) => handleUserInput(e)}
                 placeholder="Start typing or paste your text here"
-                className="w-full bg-secondary min-h-42 p-2 rounded-md outline-0"
+                className="w-full bg-secondary min-h-64 p-2 rounded-md outline-0 border border-slate-500"
             >
             </textarea>
             {
@@ -44,7 +44,7 @@ const TextInput = () => {
                     <button
                         className="p-2 text-xs rounded-md flex items-center justify-center 
                                     gap-2 bg-secondary border-0 cursor-pointer
-                                    transition-all duration-200
+                                    transition-all duration-200 border border-slate-500
                                     hover:bg-slate-500"
                         onClick={() => handleClearText()}
                     >
