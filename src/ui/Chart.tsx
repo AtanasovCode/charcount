@@ -18,6 +18,7 @@ const Chart = () => {
         wordAnalysis,
         setWordAnalysis,
         showFullAnalysis,
+        barColor,
     } = useCharStore();
 
     const getUniqueWordsCount = () => {
@@ -129,7 +130,7 @@ const Chart = () => {
                 />
                 <Bar
                     dataKey={"count"}
-                    fill="hsl(242, 100%, 93%)"
+                    fill={barColor}
                     maxBarSize={getBarHeight()}
                     radius={6}
                     label={({ x, y, width, height, value }) => (

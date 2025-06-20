@@ -25,6 +25,9 @@ interface charStore {
     setShowFullAnalysis: (value: boolean) => void;
     visibleBars: number;
     setVisibleBars: (bars: number) => void;
+
+    barColor: string;
+    setBarColor: (color: string) => void;
 }
 
 export const useCharStore = create<charStore>()((set) => ({
@@ -46,4 +49,7 @@ export const useCharStore = create<charStore>()((set) => ({
     setShowFullAnalysis: (value: boolean) => set({showFullAnalysis: value }),
     visibleBars: 0,
     setVisibleBars: (bars: number) => set({ visibleBars: bars }),
+
+    barColor: "hsl(242, 100%, 93%)",
+    setBarColor: (color: string) => set({ barColor: color }),
 }))
