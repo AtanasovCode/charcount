@@ -21,14 +21,14 @@ const ChartContainer = () => {
     return (
         <div className="w-full flex flex-col items-center justify-center text-text">
             <div className="w-full flex flex-col items-start justify-center mb-4">
-                <div className="flex items-center justify-start gap-4">
+                <div className="w-full flex items-center justify-start gap-4">
                     <div className="text-2xl font-bold">
                         Word Analysis
                     </div>
                     <div className="flex items-center justify-center gap-2">
-                        <div className="bg-accent w-4 aspect-square rounded-full cursor-pointer" onClick={() => setBarColor("hsl(242, 100%, 93%)")}></div>
-                        <div className="bg-orange w-4 aspect-square rounded-full cursor-pointer" onClick={() => setBarColor("hsl(37, 100%, 80%)")} ></div>
-                        <div className="bg-green w-4 aspect-square rounded-full cursor-pointer" onClick={() => setBarColor("hsl(120, 100%, 50%)")}></div>
+                        <div className="bg-accent w-6 lg:w-4 aspect-square rounded-full cursor-pointer" onClick={() => setBarColor("hsl(242, 100%, 93%)")}></div>
+                        <div className="bg-orange w-6 lg:w-4 aspect-square rounded-full cursor-pointer" onClick={() => setBarColor("hsl(37, 100%, 80%)")} ></div>
+                        <div className="bg-green w-6 lg:w-4 aspect-square rounded-full cursor-pointer" onClick={() => setBarColor("hsl(120, 100%, 50%)")}></div>
                     </div>
                 </div>
                 <div className={clsx(

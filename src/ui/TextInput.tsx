@@ -18,7 +18,7 @@ const TextInput = () => {
         setUserText(value);
         setCharCount(value.trim().length);
         setWordCount(value.trim().split(/\s+/).filter(Boolean).length);
-        setSentenceCount(value.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|!|\?)\s/g).length)
+        setSentenceCount(value === "" ? 0 : value.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|!|\?)\s/g).length)
     };
 
     const handleClearText = () => {
