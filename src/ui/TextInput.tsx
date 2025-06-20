@@ -43,7 +43,7 @@ const TextInput = () => {
                 userText !== "" && (
                     <button
                         className="p-2 text-xs rounded-md flex items-center justify-center 
-                                    gap-2 bg-secondary border-0 cursor-pointer
+                                    gap-2 bg-secondary cursor-pointer
                                     transition-all duration-200 border border-slate-500
                                     hover:bg-slate-500"
                         onClick={() => handleClearText()}

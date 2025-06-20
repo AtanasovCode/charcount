@@ -124,8 +124,8 @@ const Chart = () => {
                     type="number"
                     dataKey="count"
                     tick={{ fill: "#FFFFFF" }}
-                    tickFormatter={(value) => Math.floor(value).toString()}
-                    domain={[0, (dataMax: any) => dataMax]}
+                    tickFormatter={(value) => (Number.isInteger(value) ? value : '')}
+                    domain={[0, (dataMax: number) => Math.ceil(dataMax)]}
                 />
                 <Bar
                     dataKey={"count"}

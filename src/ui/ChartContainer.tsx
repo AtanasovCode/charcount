@@ -18,8 +18,8 @@ const ChartContainer = () => {
     const shouldShowToggle = userText !== "" && checkAnalysisLength();
 
     return (
-        <div className="w-full flex flex-col items-start justify-center text-text">
-            <div className="flex flex-col items-start justify-center mb-4">
+        <div className="w-full flex flex-col items-center justify-center text-text">
+            <div className="w-full flex flex-col items-start justify-center mb-4">
                 <div className="text-2xl font-bold">
                     Word Analysis
                 </div>
@@ -33,10 +33,12 @@ const ChartContainer = () => {
                     Start typing or input text to see word analysis
                 </div>
             </div>
-            <Chart />
+            <div className="w-full xl:w-[110%]">
+                <Chart />
+            </div>
             {shouldShowToggle && (
                 <div
-                    className="flex items-center justify-start text-fancy text-sm underline cursor-pointer ml-16"
+                    className="w-full flex items-center justify-start text-fancy text-sm underline cursor-pointer"
                     onClick={() => setShowFullAnalysis(!showFullAnalysis)}
                 >
                     {showFullAnalysis ? (
